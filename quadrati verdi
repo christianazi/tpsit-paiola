@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<style>
+    .DIV{
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  background-color: #87c494;
+  margin: 10px;
+  border-style: solid;
+  border-color: #5d8365;
+}
+</style>
+
+  <div class="DIV" name="quadrato"></div>
+  <div class="DIV" name="quadrato"></div>
+  <div class="DIV" name="quadrato"></div>
+  <div class="DIV" name="quadrato"></div>
+  <div class="DIV" name="quadrato"></div>
+
+  <script>
+
+    let vet = document.getElementsByName("quadrato");
+    let i, quadrati = 4, S = 130;
+    for (i=0; i<quadrati; i++){
+      vet[i].style.left = i*S + "px";
+    }
+    funzione();
+
+    async function funzione(){
+      let i, j, temp;
+      let vet = document.getElementsByName("quadrato");
+      for(i=quadrati; i>=0; i--){
+        temp = i*S;
+        for(j=0; j<100; j++){
+          vet[i].style.left = temp + "px";
+          temp++;
+          await sleep(10);
+        }
+      }
+    }
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+  </script>
+</body>
